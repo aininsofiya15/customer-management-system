@@ -190,18 +190,6 @@
             border: 1px solid transparent;
         }
         .filter-chip i { font-size: .65rem; }
-
-        /* Friendly error message for an invalid date range */
-        .filter-error {
-            display: flex; align-items: flex-start; gap: .6rem;
-            padding: .85rem 1rem;
-            border-radius: 12px;
-            background: #fef2f2;
-            border: 1px solid #fecaca;
-            color: #b91c1c;
-            font-size: .88rem;
-        }
-        .filter-error i { margin-top: .1rem; }
         .filter-chip:hover { border-color: var(--accent); color: var(--accent-dark); }
 
         .empty-state { padding: 3rem 1rem; text-align: center; color: var(--muted); }

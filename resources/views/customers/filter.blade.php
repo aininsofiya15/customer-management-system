@@ -18,14 +18,6 @@
     {{-- Filter form: keeps the selected values --}}
     @include('partials.filter-form')
 
-    {{-- Friendly error when the custom date range is invalid --}}
-    @if ($error)
-        <div class="filter-error mb-3" role="alert">
-            <i class="bi bi-exclamation-circle-fill"></i>
-            <span><strong>{{ $error }}</strong> The date filter was not applied. Please check the dates and try again.</span>
-        </div>
-    @endif
-
     {{-- Active filter chips; each × link removes only that one filter --}}
     @if ($hasFilter)
         <div class="d-flex flex-wrap align-items-center gap-2 mb-3">

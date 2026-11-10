@@ -26,8 +26,6 @@
             --male-soft: #e0ecff;
             --female: #db2777;
             --female-soft: #fde7f1;
-            --teen: #059669;
-            --teen-soft: #dcfce7;
         }
 
         body {
@@ -38,6 +36,9 @@
             display: flex;
             flex-direction: column;
         }
+
+        /* Centered page width shared by the header and main content */
+        .page-container { max-width: 1400px; margin-left: auto; margin-right: auto; }
 
         /* ---------- Header ---------- */
         .app-header {
@@ -55,28 +56,6 @@
         .brand-title { font-weight: 800; font-size: 1.15rem; margin: 0; }
         .brand-sub { color: var(--muted); font-size: .85rem; margin: 0; }
 
-        /* Pill-style navigation tabs */
-        .nav-pills-custom {
-            background: var(--page-bg);
-            border-radius: 999px;
-            padding: 4px;
-            gap: 2px;
-        }
-        .nav-pills-custom .nav-link {
-            color: var(--muted);
-            font-weight: 600;
-            font-size: .9rem;
-            border-radius: 999px;
-            padding: .45rem 1rem;
-            white-space: nowrap;
-        }
-        .nav-pills-custom .nav-link:hover { color: var(--accent); }
-        .nav-pills-custom .nav-link.active {
-            background: var(--accent);
-            color: #fff;
-            box-shadow: 0 4px 12px rgba(79, 70, 229, .3);
-        }
-
         /* ---------- Cards ---------- */
         .card-soft {
             background: #fff;
@@ -85,34 +64,9 @@
             box-shadow: 0 1px 3px rgba(15, 23, 42, .04), 0 6px 20px rgba(15, 23, 42, .04);
         }
 
-        /* Stat cards (whole card is a link) */
-        .stat-card {
-            display: flex; align-items: center; gap: 1rem;
-            padding: 1.15rem 1.25rem;
-            text-decoration: none;
-            color: inherit;
-            transition: transform .15s ease, box-shadow .15s ease, border-color .15s ease;
-        }
-        .stat-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 24px rgba(15, 23, 42, .08);
-            color: inherit;
-        }
-        .stat-card.current { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
-        .stat-icon {
-            width: 48px; height: 48px; flex-shrink: 0;
-            border-radius: 50%;
-            display: grid; place-items: center;
-            font-size: 1.25rem;
-        }
-        .stat-value { font-size: 1.6rem; font-weight: 800; line-height: 1.1; }
-        .stat-label { font-size: .8rem; color: var(--muted); font-weight: 500; }
-
-        /* Soft colour helpers */
-        .bg-accent-soft { background: var(--accent-soft); color: var(--accent); }
+        /* Soft colour helpers (gender pills) */
         .bg-male-soft   { background: var(--male-soft);   color: var(--male); }
         .bg-female-soft { background: var(--female-soft); color: var(--female); }
-        .bg-teen-soft   { background: var(--teen-soft);   color: var(--teen); }
 
         /* ---------- Page heading ---------- */
         .page-title { font-weight: 800; font-size: 1.5rem; margin: 0; }
@@ -203,7 +157,7 @@
 
     {{-- Header: app logo, name and subtitle --}}
     <header class="app-header">
-        <div class="container py-3">
+        <div class="container-fluid page-container px-4 px-lg-5 py-3">
             <a href="{{ route('customers.index') }}" class="d-inline-flex align-items-center gap-3 text-decoration-none text-reset">
                 <span class="brand-icon"><i class="bi bi-people-fill"></i></span>
                 <span>
@@ -214,7 +168,7 @@
         </div>
     </header>
 
-    <main class="container py-4 flex-grow-1">
+    <main class="container-fluid page-container px-4 px-lg-5 py-4 flex-grow-1">
         {{-- Page-specific content --}}
         @yield('content')
     </main>

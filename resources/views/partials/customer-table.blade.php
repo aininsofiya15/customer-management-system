@@ -15,14 +15,15 @@
     <div class="table-wrap">
         <table class="table customer-table">
             <thead>
+                {{-- Column widths share the space evenly; they add up to 100% --}}
                 <tr>
-                    <th>#</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Address</th>
-                    <th>Phone Number</th>
-                    <th>Gender</th>
-                    <th>Birthday</th>
+                    <th style="width: 4%;">#</th>
+                    <th style="width: 18%;">Name</th>
+                    <th style="width: 21%;">Email</th>
+                    <th style="width: 25%;">Address</th>
+                    <th style="width: 12%;">Phone Number</th>
+                    <th style="width: 9%;">Gender</th>
+                    <th style="width: 11%;">Birthday</th>
                 </tr>
             </thead>
             <tbody id="customerRows">
@@ -30,11 +31,12 @@
                 @forelse ($customers as $customer)
                     <tr class="customer-row">
                         <td class="text-muted-sm">{{ $loop->iteration }}</td>
-                        <td class="fw-semibold text-nowrap">{{ $customer->name }}</td>
-                        <td class="text-muted-sm text-nowrap"><i class="bi bi-envelope me-1"></i>{{ $customer->email }}</td>
-                        <td class="text-muted-sm" style="min-width: 220px;">{{ $customer->address }}</td>
+                        {{-- Name, email and address may wrap; phone, gender and birthday stay on one line --}}
+                        <td class="fw-semibold" style="min-width: 140px;">{{ $customer->name }}</td>
+                        <td class="text-muted-sm text-break" style="min-width: 240px;"><i class="bi bi-envelope me-1"></i>{{ $customer->email }}</td>
+                        <td class="text-muted-sm" style="min-width: 180px;">{{ $customer->address }}</td>
                         <td class="text-muted-sm text-nowrap"><i class="bi bi-telephone me-1"></i>{{ $customer->phoneNumber }}</td>
-                        <td>
+                        <td class="text-nowrap">
                             {{-- Soft pastel pill badge with a gender icon --}}
                             <span class="pill {{ $customer->gender === 'Male' ? 'bg-male-soft' : 'bg-female-soft' }}">
                                 <i class="bi {{ $customer->gender === 'Male' ? 'bi-gender-male' : 'bi-gender-female' }}"></i>{{ $customer->gender }}

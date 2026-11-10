@@ -10,7 +10,7 @@ Route::redirect('/', '/customers');
 Route::get('/customers', [CustomerController::class, 'index'])
     ->name('customers.index');
 
-// Filtered customers (gender, born after 2000, custom date range)
-// e.g. /customers/filter?gender=Female&birthday=custom&from=1990-01-01&to=1999-12-31
+// Filtered customers (gender and/or born after 2000)
+// e.g. /customers/filter?gender=Female&birthday=after2000
 Route::get('/customers/filter', [CustomerController::class, 'filter'])
     ->name('customers.filter');

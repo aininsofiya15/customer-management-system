@@ -16,7 +16,7 @@
         <table class="table customer-table">
             <thead>
                 <tr>
-                    <th style="width: 4%;">#</th>
+                    <th style="width: 4%;">No</th>
                     <th style="width: 18%;">Name</th>
                     <th style="width: 21%;">Email</th>
                     <th style="width: 25%;">Address</th>

@@ -16,10 +16,10 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->text('address');
-            $table->string('phoneNumber');              // camelCase column name kept as required
+            $table->string('phoneNumber');              
             $table->enum('gender', ['Male', 'Female']);
             $table->date('birthday');
-            $table->timestamps();                       // created_at & updated_at
+            $table->timestamps();                       
         });
     }
 

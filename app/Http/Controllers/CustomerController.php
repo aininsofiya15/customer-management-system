@@ -22,7 +22,6 @@ class CustomerController extends Controller
 
     /**
      * Show customers that match the filter form.
-     * Example: /customers/filter?gender=Female&birthday=after2000
      */
     public function filter(Request $request)
     {

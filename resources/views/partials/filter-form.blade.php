@@ -1,8 +1,3 @@
-{{--
-    Filter form shared by the customer list and the filtered view.
-    Submits with GET to /customers/filter, e.g. /customers/filter?gender=Female&birthday=after2000
-    Expects $selected (gender, birthday) from CustomerController to keep the chosen values.
---}}
 
 <form method="GET" action="{{ route('customers.filter') }}" class="card-soft p-3 mb-3">
     <div class="row g-3 align-items-end">
